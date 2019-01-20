@@ -79,7 +79,7 @@ module name:
 
 Choose the module name wisely. The first file found in the module root directory,
 in the following order, will be sourced:
-init.zsh, *module*.zsh, *module*.plugin.zsh, *module*.zsh.theme, *module*.sh
+init.zsh, *module*.zsh, *module*.plugin.zsh, *module*.zsh.theme, prompt_<em>module</em>_setup, *module*.sh
 
 For example, [mafredi/zsh-async](https://github.com/mafredri/zsh-async) must be
 configured as a module called `async`:
@@ -88,21 +88,6 @@ configured as a module called `async`:
 
 because it has an async.zsh initialization file. Then to be enabled, `async` must
 be added to the modules style.
-
-### Prompt theme
-
-Prompt themes are enabled in one of two different ways, depending on how the
-specific theme you want works:
-
-  1. If it has a prompt_<em>module</em>_setup file: it is enabled with Zim's
-     `prompt` module. See [the instructions
-     here](https://github.com/zimfw/prompt/blob/master/README.md#settings). All
-     [Zim themes](https://github.com/zimfw/zimfw/wiki/Themes) work this way.
-     The advantage of these themes is that you can customize them with
-     additional parameters.
-  2. If it has one of the initialization files listed above: it is enabled when
-     it's sourced, not with Zim's `prompt` module. The last sourced prompt
-     overrides any previous ones.
 
 Updating
 --------

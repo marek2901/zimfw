@@ -39,10 +39,8 @@ fi
     zdir=${ZIM_HOME}/modules/${zmodule}
     if [[ ! -d ${zdir} ]]; then
       print "init: module ${zmodule} not installed" >&2
-    elif [[ -f ${zdir}/prompt_${zmodule}_setup ]]; then
-      fpath=(${zdir} ${fpath}) # Will be loaded by promptinit
     else
-      for zfile in ${zdir}/init.zsh ${zdir}/${zmodule}.{zsh,plugin.zsh,zsh-theme,sh}; do
+      for zfile in ${zdir}/{init.zsh,${zmodule}.{zsh,plugin.zsh,zsh-theme},prompt_${zmodule}_setup,${zmodule}.sh}; do
         if [[ -f ${zfile} ]]; then
           source ${zfile}
           break
